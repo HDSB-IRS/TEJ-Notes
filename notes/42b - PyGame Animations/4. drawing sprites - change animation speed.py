@@ -23,7 +23,6 @@ def main():
     lizardRect = [128,236,16,28]
     lizardPatchNumber = 0         #Start at the initial patch
     lizardNumPatches = 4          #Only use 4 patches
-    lizardFrameCount = 0          #Start at intial frame
     
     lizardFrameRate = 10;
     

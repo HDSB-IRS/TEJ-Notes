@@ -26,9 +26,7 @@ def main():
     lizardRect = [128*scale,236*scale,16*scale,28*scale]  #Old Values
     #lizardRect = [256,472,32,56]  #New values are doubled since I doubled the scale
     lizardPatchNumber = 0         #Start at the initial patch
-    lizardNumPatches = 4          #Only use 4 patches
-    lizardFrameCount = 0          #Start at intial frame
-    
+    lizardNumPatches = 4          #Only use 4 patches    
     lizardFrameRate = 10;
     
     

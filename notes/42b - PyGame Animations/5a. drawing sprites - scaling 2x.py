@@ -25,7 +25,6 @@ def main():
     lizardRect = [256,472,32,56]  #New values are doubled since I doubled the scale
     lizardPatchNumber = 0         #Start at the initial patch
     lizardNumPatches = 4          #Only use 4 patches
-    lizardFrameCount = 0          #Start at intial frame
     
     lizardFrameRate = 10;
     
@@ -70,3 +69,4 @@ def main():
     pygame.quit()     # Once we leave the loop, close the window.
 
 main()
+
