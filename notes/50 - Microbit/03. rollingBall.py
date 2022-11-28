@@ -18,14 +18,14 @@ while True:
     z = accelerometer.get_z()
     print("x, y, z:", x, y, z)
     #display.show(Image.YES)
-    sleep(DELAY_VALUE)
-    #display.show(Image.NO)
     #sleep(DELAY_VALUE)
+    #display.show(Image.NO)
+    sleep(DELAY_VALUE)
  '''
 #-----------------------------------------------------------------------------
 
 import pygame
-from Microbit import *
+from MicrobitSerial import *
 
 ballPos = [220,220]
 ballSpeed = [0,0]
@@ -164,7 +164,7 @@ def main():
     #-----------------END of main while True loop!------------------------------
         
     if mb != None:
-        mb.close()  #Close the microbit serial connection
+        mb.closeConnection()  #Close the microbit serial connection
     
     pygame.quit()     # Once we leave the loop, close the window.
     

@@ -21,20 +21,13 @@
 # 
 from MicrobitSerial import *
 
-while True:
-    mb = Microbit()
+while True: #Create Microbit
+    mb = MicrobitSerial()
     
-    if mb.isReady():
+    if mb.isReady(): #This is confusing people, make it look more like pygame
         break
-    else:
-        print("No connection found, is microbit plugged in?")
-        print("Trying again in 5 seconds")
-        time.sleep(5)
-        
 
-
-while mb.isReady():
-    
+while True:
     line = mb.nonBlockingReadLine()
     if line != None:
         print(line)
