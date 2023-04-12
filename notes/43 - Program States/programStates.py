@@ -22,9 +22,11 @@ def main():
     while True:
         print(f"Program Ticks: {pygame.time.get_ticks()} - programState: {programState}   counter: {counter}")
         ev = pygame.event.poll()    # Look for any event
+        #Events that EVERY program state will need to use
         if ev.type == pygame.QUIT:  # Always need to do this, so needs to be outside the programState if statments!
             break                   #   ... leave game loop
-
+        
+        
         if programState == "start":
                 #Check for events for the start screen
                 if ev.type == pygame.MOUSEBUTTONUP:
