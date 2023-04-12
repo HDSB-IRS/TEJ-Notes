@@ -51,7 +51,7 @@ while True:               #Create a never-ending loop
     #print(time.time())
 
 
-#Method 3,4,5 etc
+# Other ways this can be accomplished
 # https://pygame-zero.readthedocs.io/en/stable/builtins.html#clock
 # https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-decorators
 

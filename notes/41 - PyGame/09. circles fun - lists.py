@@ -49,7 +49,7 @@ def main():
         #Move the circle
         #circlePos[0] = circlePos[0] +1
         circlePos[0] += 1
-        circlePos2[0] -= 1
+        circlePos2[0] += 1
         for count in range(numCircles):
             circlePosList[count][0] += 1            
 
