@@ -39,10 +39,10 @@ def main():
         #This doesn't work (although you might expect it to...)
         pygame.draw.circle(mainSurface, pygame.Color(255,0,0,10), (100,100), circleSize)
         
-        #This is the correct way to make transparent shapes in pygame
+        #This is a functioning way to make transparent shapes in pygame
         s = pygame.Surface((circleSize*2,circleSize*2), pygame.SRCALPHA)   #Make sure this is big enough for your image - SCRALPHA - per-pixel alpha
-        s.fill((255,255,255,128))                         # notice the alpha value in the color
-        pygame.draw.circle(s, pygame.Color(255,0,0,128), (circleSize, circleSize), 20)        
+        s.fill((255,255,255,0))                         # notice the alpha value in the color
+        pygame.draw.circle(s, pygame.Color(255,0,0,125), (circleSize, circleSize), 20)        
         mainSurface.blit(s, (200,200))
         
         # Now the surface is ready, tell pygame to display it!
