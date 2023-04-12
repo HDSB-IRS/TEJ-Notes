@@ -1,45 +1,5 @@
 import pygame
 import random
-
-class Ball():
-    
-    def __init__(self, posIn, sizeIn, colorIn):
-        self.pos = posIn
-        self.size = sizeIn
-        self.color = colorIn 
-        
-    def draw(self, surfaceIn):
-        pygame.draw.circle(surfaceIn, self.color, self.pos, self.size)
-        
-    def move(self, xIn=0, yIn=0):
-        self.pos[0] += xIn
-        self.pos[1] += yIn
-        
-#         #Another way to do it
-#         self.pos = ( self.pos[0] + xIn, self.pos[1].yIn)
-        pass
-    
-    def setPos(self, xIn=0, yIn=0):
-        #TODO Set the position of the ball to xIn and yIn
-        pass
-        
-    def distFromPoint(self, xIn, yIn):
-        #https://www.khanacademy.org/math/geometry/hs-geo-analytic-geometry/hs-geo-distance-and-midpoints/v/distance-formula#:~:text=Learn%20how%20to%20find%20the,distance%20between%20any%20two%20points.
-        #TODO: Given an x and y input return the distance the ball is from this point
-        pass
-    
-    def collidePoint(self, xIn, yIn):
-        #Challenge!
-        #TODO check to see if the point is inside the circle.  If so return true, otherwise false.
-        pass
-    
-    def collideXXXX(self):
-        #Even more challenge
-        #TODO Add another collison check for a differnt object type (another Ball, a rect, etc.)
-        pass
-
- #   def bounce(self):
-
     
     
 def main():
@@ -52,15 +12,20 @@ def main():
     # Create surface of (width, height), and its window.
     mainSurface = pygame.display.set_mode((surfaceSize, surfaceSize))
     
-    #EXAMPLE CODE - Set up a variable to count the number of frames
+    # Set up a variable to count the number of frames
     frameCount = 0
 
-    # Create the ball object using it's position, size and color
-    circle = Ball([50,100], 30, (255, 0, 0))        # A color is a mix of (Red, Green, Blue)
+    # Create the circle lists
+    circlePosList = []
+    circleSizeList = []
+    circleColorList = []
+    numCircles = 5
     
-    circles = []
-    for i in range(5): #Add 5 balls to the list of circles
-        circles.append(Ball([random.randrange(surfaceSize),random.randrange(surfaceSize)], 30, (0, 0, 0)) )
+    # Add Circles to the list
+    for count in range(numCircles):
+        circlePosList.append( [random.randint(0,480),random.randint(0,480)] )
+        circleSizeList.append( random.randint(5, 50))
+        circleColorList.append( (random.randint(0,255),random.randint(0,255),random.randint(0,255)))
 
     while True:
         ev = pygame.event.poll()    # Look for any event
@@ -68,31 +33,31 @@ def main():
             break                   #   ... leave game loop
 
         # Update your game objects and data structures here...
+        #Move the circles
+        for count in range(len(circlePosList)): #Get the actual length of list instead of relying on numCircles
+            circlePosList[count][0] += 1   
 
-
-        #EXAMPLE CODE - Increment the frame counter for every game loop
+        #Increment the frame counter for every game loop
         frameCount += 1
         print(frameCount)
         
-        if frameCount >= 60:  #ie.  Once every second since 60 fps
-            circles.append(Ball([0,random.randrange(surfaceSize)], 30, (0, 0, 0)) )
-            frameCount = 0    #add a new ball ^^ and reset the frame count
-
-
-        # We draw everything from scratch on each frame.
-        # So first fill everything with the background color
+        #Add a circle if the frame counter is big enough
+        if frameCount % 60 ==0:  #ie.  Once every second since 60 fps
+            circlePosList.append( [20,random.randint(0,480)] )
+            circleSizeList.append( random.randint(5, 50))
+            circleColorList.append( (random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+            #It would be better to do the above 3 lines in a function to save code repetition.
+            
+            #Reset the frame counter so we can do it all over again
+            frameCount = 0
+            
+        # Draw Everything
+        # Fill everything with the background color
         mainSurface.fill((0, 200, 255))
 
-        
-        #Move the circle
-        #circle.pos[0] += 1  #TODO: Replace with with the move() method.
-        circle.move(1,0)
-        # Draw the circle on the surface
-        circle.draw(mainSurface)
-        
-        for i in range(len(circles)):
-            circles[i].move(1,0)
-            circles[i].draw(mainSurface)
+        #Draw all the circles
+        for count in range(len(circlePosList)):
+            pygame.draw.circle(mainSurface, circleColorList[count], circlePosList[count], circleSizeList[count])
 
         # Now the surface is ready, tell pygame to display it!
         pygame.display.flip()
