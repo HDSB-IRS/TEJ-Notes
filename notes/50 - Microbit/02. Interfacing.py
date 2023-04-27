@@ -22,7 +22,7 @@
 from MicrobitSerial import *
 
 while True:
-    mb = Microbit()
+    mb = MicrobitSerial()
     
     if mb.isReady():
         break
@@ -40,10 +40,13 @@ while mb.isReady():
         print(line)
         
     
-    #time.sleep(1)
-        
-try:
-    mb.closeConnection()
-except AttributeError as e:
-    print(f'Error - Connection could not be closed.  ({e})')
+    time.sleep(0.017) #Approximating a 60 fps delay
+else:
+    print("Microbit Disconnected - Attempting to close serial connection")
     
+    try:
+        mb.closeConnection()
+        print("Mirobit serial connection succesfully closed")
+    except AttributeError as e:
+        print(f'Error - Connection could not be closed.  ({e})')
+        

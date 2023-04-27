@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------
-# Name:        Microbit Class (Microbit.py)
+# Name:        MicrobitSerial Class (MicrobitSerial.py)
 # Purpose:     This class detects a microbit and reads information from any active serial connections
 #
 # Author:      Mr. Brooks-Prenger
@@ -9,11 +9,11 @@
 #EXAMPLE CODE HOW TO USE THIS CLASS
 # def main():
 #     #Create microbit instance
-#     mb = Microbit()
+#     mb = MicrobitSerial()
 #     
 #     #Check to make sure it's working
 #     if not mb.isReady():
-#         print('Error, Problem Loading Microbit.  Exiting Program')
+#         print('Error, Problem Loading Microbit Serial Connection.  Exiting Program')
 #         return
 #          
 # 
@@ -31,7 +31,7 @@ import serial
 import serial.tools.list_ports as list_ports
 import time
 
-class Microbit():
+class MicrobitSerial():
     
     def __init__(self, excludePorts=[]):
         self.isLoaded = False

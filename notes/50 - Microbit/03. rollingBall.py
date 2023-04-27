@@ -98,7 +98,7 @@ def main():
             
         elif programState == "set up microbit":
             
-            mb = Microbit()
+            mb = MicrobitSerial()
 
             if not mb.isReady():
                 print('Error opening Microbit - Trying again in 5 seconds')    
