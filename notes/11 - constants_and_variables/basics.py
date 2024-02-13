@@ -2,9 +2,9 @@
 # Name:        Some Basics (basics.py)
 # Purpose:     To provide a sample program about the basics of Python
 #
-# Author:      Mr. Seidel
+# Author:      Mr. Seidel, C. Brooks-Prenger
 # Created:     14-Aug-2018
-# Updated:     28-Sep-2018
+# Updated:     13-02-2024
 #-----------------------------------------------------------------------------
 
 # Printing the addition of two integers
