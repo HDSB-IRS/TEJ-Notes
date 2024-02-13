@@ -8,16 +8,16 @@
 #-----------------------------------------------------------------------------
 
 # Printing the addition of two integers
-print(str(1 + 2))
+print(f'{1 + 2}')
 
 # Printing of the subtraction of two floats
-print(str(4.3 - 2.1))
+print(f'{4.3 - 2.1}')
 
 # Boolean values
 right = True
 wrong = False
-print(str(right))
-print(str(wrong))
+print(f'{right}')
+print(f'{wrong}')
 
 # Two integers to be used for the rest of the program.
 integerOne = 1
@@ -29,30 +29,30 @@ floatTwo = 5.3
 
 # Multiplying two float values.
 productOfFloats = floatOne * floatTwo
-print(str(productOfFloats))
+print(f'{productOfFloats}')
 
 # Division of two float values.
 quotientOfFloats = floatTwo / floatOne
-print(str(quotientOfFloats))
+print(f'{quotientOfFloats}')
 
 # Using integer division on two floats
 integerDivisionOfFloats = floatTwo // floatOne
-print(str(integerDivisionOfFloats))
+print(f'{integerDivisionOfFloats}')
 
 # Using the modulo operator
 moduloOfIntegers = 5 % 2
-print(str(moduloOfIntegers))
+print(f'{moduloOfIntegers}')
 
 # Converting between floats and integers
-print(str(int(floatOne)))
-print(str(float(integerOne)))
+print(f'{int(floatOne)}')
+print(f'{float(integerOne)}')
 
 # Equation
-print(str(4 * 2 / 8))
+print(f'{(4 * 2) / 8}')
 
 # Getting input from the user using input('Question goes here')
 # Then formatting and printing back out the user input.
 name = input('Enter your name: ')  # Note: This asks the user to 'Enter your name: '.  Do NOT change this to your name directly
 age = input('Enter your age: ')
-print('Hello ' + str(name) + ', you are ' + str(age) + ' years old.')
+print(f'Hello {name} you are {age} years old.')
 
