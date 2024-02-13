@@ -96,7 +96,7 @@ def main():
         #mainSurface.blit(spriteSheet, lizardPos, lizardRect)  #Positions found using msPaint
         tempSurface = pygame.Surface( (lizardRect[2], lizardRect[3]) ) #Make a temp Surface using the width and height of the rect
         tempSurface.fill((1,255,1))
-        tempSurface.set_colorkey((1,255,1))                                      #Set the color black to be transparent
+        tempSurface.set_colorkey((1,255,1))                                      #Set the color green (1,255,1) to be transparent
         tempSurface.blit(spriteSheet, (0,0),  lizardRect)                      #Copy the lizard image to the temp surface
 #         
         if lizardDirection == 'Left':
