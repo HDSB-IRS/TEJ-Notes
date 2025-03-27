@@ -1,4 +1,5 @@
 import pygame
+import math
 
 def main():
     """ Set up the game and run the main game loop """

@@ -1,11 +1,15 @@
+'''
 #Practice
 
-#1. Make the circle go up.
-#2. Make the circles move faster when you click the mouse button (Events)
-#3. Control the circles with a keyboard command
-#4. Challenge - Make the circles wrap around the screen (or bounce off the screen)
+1. Make the circle go up.
+2. Make the circles move faster when you click the mouse button (Events)
+3. Control the circles with a keyboard command
+4. Challenge - Make the circles wrap around the screen (or bounce off the screen)
+'''
 
 import pygame
+import math
+
 
 def main():
     #-----------------------------Setup------------------------------------------------------#

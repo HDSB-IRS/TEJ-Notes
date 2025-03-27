@@ -1,5 +1,5 @@
 import pygame
-
+import math
 
 def update_fps(font, clock):
 	fps = str(int(clock.get_fps()))

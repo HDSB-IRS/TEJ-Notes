@@ -1,8 +1,11 @@
-#Practice
+'''
+Practice
 
-#1. Apply this technique to your circle program
+1. Apply this technique to your circle program
+'''
 
 import pygame
+import math
 import random
 
 def main():
