@@ -1,3 +1,3 @@
-# ICS3
+# TEJ
 
-See the notes section for various notes referred to throughout the course.
+See the notes section for various programming notes referred to throughout the course.
