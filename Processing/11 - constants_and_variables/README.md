@@ -118,20 +118,3 @@ Processing provides several "built-in" variables that are very useful for creati
 * `key`: A `char` variable that holds the value of the most recent key that was pressed.
 * `keyPressed`: A `boolean` variable that is `true` if any key is currently pressed, and `false` otherwise.
 * `frameCount`: An `int` variable that counts the number of frames displayed since the sketch started.
-
----
-
-### Built-in Variables
-
-Processing provides several "built-in" variables that are very useful for creating interactive sketches. You don't need to declare them; you can just use them.
-
-* `width`: The width of your sketch window (in pixels), set by `size()`.
-* `height`: The height of your sketch window (in pixels), set by `size()`.
-* `mouseX`: The current `int` x-coordinate (horizontal position) of the mouse.
-* `mouseY`: The current `int` y-coordinate (vertical position) of the mouse.
-* `pmouseX`: The `int` x-coordinate of the mouse in the *previous* frame.
-* `pmouseY`: The `int` y-coordinate of the mouse in the *previous* frame.
-* `mousePressed`: A `boolean` variable that is `true` if any mouse button is currently pressed, and `false` otherwise.
-* `key`: A `char` variable that holds the value of the most recent key that was pressed.
-* `keyPressed`: A `boolean` variable that is `true` if any key is currently pressed, and `false` otherwise.
-* `frameCount`: An `int` variable that counts the number of frames displayed since the sketch started.
