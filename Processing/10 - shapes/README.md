@@ -132,3 +132,8 @@ void draw() {
 This is just a small sample of the available shapes. For a complete list, including `arc`, `curve`, and 3D shapes, always check the official Processing reference.
 
 **[https://processing.org/reference/\#shape](https://processing.org/reference/#shape)**
+
+### Prefer Videos?
+* [http://learningprocessing.com/videos/2-0](http://learningprocessing.com/videos/2-0)
+* [http://learningprocessing.com/videos/2-1](http://learningprocessing.com/videos/2-1)
+
