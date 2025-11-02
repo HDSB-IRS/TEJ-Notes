@@ -1,7 +1,3 @@
-Here is a new Markdown note covering the Processing framework and 2D shapes.
-
------
-
 # Notes (Framework & 2D Shapes)
 
 ### The Processing Framework (`setup()` & `draw()`)
