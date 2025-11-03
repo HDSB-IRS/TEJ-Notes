@@ -66,7 +66,7 @@ void draw() {
   rect(50, 50, 80, 80);
 
   // 7. Use 'frameCount' with text()
-  // This new section displays the frame count at the top-left.
+  // This section displays the frame count at the top-left.
   // It's drawn last to appear on top of all other shapes.
   
   // Draw a white rectangle to clear the area behind the text
