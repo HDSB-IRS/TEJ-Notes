@@ -118,3 +118,8 @@ Processing provides several "built-in" variables that are very useful for creati
 * `key`: A `char` variable that holds the value of the most recent key that was pressed.
 * `keyPressed`: A `boolean` variable that is `true` if any key is currently pressed, and `false` otherwise.
 * `frameCount`: An `int` variable that counts the number of frames displayed since the sketch started.
+
+### Prefer Videos?
+* http://learningprocessing.com/videos/3-0
+* http://learningprocessing.com/videos/3-1
+* http://learningprocessing.com/videos/3-2
