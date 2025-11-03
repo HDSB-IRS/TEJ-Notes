@@ -1,73 +1,83 @@
 /*-----------------------------------------------------------------------------
- Name:        Some Basics
- Purpose:     This sketch demonstrates common built-in variables like width, height, mouseX, mouseY, pmouseX, pmouseY, mousePressed, key, keyPressed, and frameCount.
-
+ Name:        Built-in Variables and Text
+ Purpose:     Demonstrates built-in variables (width, height, mouseX, 
+              mouseY, pmouseX, pmouseY, frameCount, mousePressed, 
+              keyPressed, key) and displays text on the screen.
+ 
  Author:      C. Brooks-Prenger
- Created:     30-Oct-2025
- Updated:     30-Oct-2025
+ Created:     02-Nov-2025
+ Updated:     02-Nov-2025
 -----------------------------------------------------------------------------*/
-
-/*
- * Example: Built-in Variables
- *
- * This sketch demonstrates common built-in variables
- * like width, height, mouseX, mouseY, pmouseX, pmouseY,
- * mousePressed, key, keyPressed, and frameCount.
- */
 
 // setup() runs once at the start.
 void setup() {
-  // 1. Set the window size.
-  // This action also sets the built-in 'width' and 'height' variables.
+  // Use size() to set the window dimensions.
+  // This also sets the built-in 'width' and 'height' variables.
   size(600, 400);
-  
-  // We can print the width and height to the console.
-  println("Sketch width: " + width); // Prints 600
-  println("Sketch height: " + height); // Prints 400
-  
-  background(230); // Set a light grey background
-  println("Click and drag to draw. Hold a key to change the color.");
 }
 
-// draw() runs continuously, creating an animation.
+// draw() runs 60 times per second.
 void draw() {
-  
-  // 2. Use 'width' and 'height' to draw a line down the middle.
-  stroke(150); // Grey line
-  strokeWeight(1);
-  line(width/2, 0, width/2, height);
-
-  // 3. Use 'mousePressed' to check if the mouse is held down.
-  if (mousePressed == true) {
-    
-    // 4. Check 'keyPressed' to see if a key is also held down.
-    if (keyPressed == true) {
-      stroke(200, 50, 50); // Draw in Red
-    } else {
-      stroke(50, 50, 200); // Draw in Blue
-    }
-    
-    // 5. Use mouseX, mouseY, pmouseX, and pmouseY to draw a line
-    // from the mouse's last position to its current position.
-    strokeWeight(5);
-    line(pmouseX, pmouseY, mouseX, mouseY);
-  }
-  
-  // 6. Use 'frameCount' to display the elapsed frames
-  // This will write text on top of the drawing.
-  fill(0); // Black text
+  // 1. Use 'width' and 'height'
+  // We'll draw two rectangles using the window's dimensions.
   noStroke();
-  textSize(16);
-  // We clear a small rectangle at the top-left to make the text readable
-  fill(230);
-  rect(0, 0, 200, 30);
-  fill(0);
-  text("Frame: " + frameCount, 10, 20);
-}
+  fill(230, 230, 250); // Light purple
+  rect(0, 0, width/2, height/2); // Top-left quadrant
+  rect(width/2, height/2, width/2, height/2); // Bottom-right quadrant
+  
+  // 2. Use 'mouseX' and 'mouseY'
+  // Draw an ellipse directly at the mouse's current (x, y) coordinates.
+  fill(0, 150, 200); // Blue
+  stroke(0);
+  strokeWeight(2);
+  ellipse(mouseX, mouseY, 40, 40);
 
-// 7. This is an "event function" that uses the 'key' variable.
-// It runs once every time a key is pressed.
-void keyPressed() {
-  // Print the specific key that was pressed to the console.
-  println("Key pressed: " + key);
+  // 3. Use 'pmouseX' and 'pmouseY'
+  // Draw a small rectangle at the mouse's *previous* (x, y) coordinates.
+  fill(200, 0, 0); // Red
+  noStroke();
+  rect(pmouseX, pmouseY, 10, 10);
+  
+  // 4. Use 'frameCount'
+  // Draw a line that moves down the screen.
+  // We use modulo (%) to make 'frameCount' wrap around the 'height'.
+  float yPos = frameCount % height;
+  stroke(0, 180, 0); // Green
+  strokeWeight(4);
+  line(0, yPos, width, yPos);
+  
+  // 5. Use 'mousePressed' (a boolean)
+  // We can cast 'true' to 1 and 'false' to 0.
+  // When not pressed, size = 20 + (0 * 80) = 20
+  // When pressed,    size = 20 + (1 * 80) = 100
+  float circleSize = 20 + (int(mousePressed) * 80);
+  fill(255, 150, 0); // Orange
+  noStroke();
+  ellipse(width/2, height/2, circleSize, circleSize);
+  
+  // 6. Use 'keyPressed' (boolean) and 'key' (char)
+  // 'keyPressed' (0 or 1) will control the red channel.
+  // 'key' (ASCII value) will control the green channel.
+  float redColor = 255 * int(keyPressed);
+  float greenColor = int(key); // 'a' is 97, 'b' is 98, etc.
+  fill(redColor, greenColor, 100);
+  stroke(0);
+  strokeWeight(3);
+  rect(50, 50, 80, 80);
+
+  // 7. Use 'frameCount' with text()
+  // This new section displays the frame count at the top-left.
+  // It's drawn last to appear on top of all other shapes.
+  
+  // Draw a white rectangle to clear the area behind the text
+  fill(255); // White
+  noStroke();
+  rect(5, 5, 150, 30);
+  
+  // Draw the text
+  fill(0); // Black text
+  textSize(16);
+  // text(data, x, y)
+  // Concatenate the string "Frame: " with the frameCount variable
+  text("Frame: " + frameCount, 10, 25);
 }
