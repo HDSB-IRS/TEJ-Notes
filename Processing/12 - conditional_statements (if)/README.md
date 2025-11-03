@@ -1,98 +1,138 @@
-# Notes (Conditional Statements (if))
+# Notes (Conditional Statements)
 
-If statements allow a branching off of the program based on whether a condition is true or false.
+**Conditional statements** (or `if` statements) allow your program to make decisions and run different code based on whether a condition is `true` or `false`.
 
-To check whether a condition is false, it is found within the brackets of the if statement.  The condition will return a boolean value (i.e. true or false), and that will determine whether the program enters that if statement or not.
+In Processing, this lets you change what you draw based on user input (like `mouseX` or `keyPressed`) or other variables.
 
-```python
+### The `if` Statement
 
-x = 1
-if x == 1:
-  print("It's ONE!")
+An `if` statement checks a condition. If the condition is `true`, the code inside the **curly braces `{ }`** is executed. If the condition is `false`, the code block is skipped.
+
+```processing
+// In setup(), set size(400, 400);
+background(240);
+
+// Check if the mouse is on the left side of the screen
+if (mouseX < 200) {
+  // If true: draw a red circle
+  fill(255, 0, 0);
+  ellipse(100, 200, 80, 80);
+}
+
+// This code is outside the if-block, so it *always* runs
+fill(100);
+text("I am always here", 20, 20);
 ```
 
-Note the indenting of the ```print()``` command in the code above.  The indenting is required for the program to understand that the ```print()``` command is part of the ```if``` statement.  Anytime you have an ```if``` statement, you will need to indent any code that you want run under those conditions.  Typically you use the ```TAB``` key to indent, or use 4 spaces as a Python convention.
+### Comparison Operators
 
-For conditional statements, there are different ways for the boolean value to be checked.  Some examples include using:
-* ```==``` to check for equality
-* ```>=``` to check greater than or equal to
-* ```>``` to check greater than
-* ```<=``` to check less than or equal to
-* ```<``` to check less than
-* ```!=``` to check **not** equal to
+To create a condition, you use comparison operators. The condition will always result in a `boolean` value (`true` or `false`).
 
-There will be more options shown later in the course, but these are the basics boolean checks that a conditional statement can check.
+  * `==` : Checks for equality (e.g., `x == 10`)
+  * `>=` : Checks for greater than or equal to
+  * `>` : Checks for greater than
+  * `<=` : Checks for less than or equal to
+  * `<` : Checks for less than
+  * `!=` : Checks for **not** equal to
 
-If statements can combine to check ```if``` something is true, ```else``` do something different.  See a code block below.
+### `if-else`
 
-```python
+You can use `else` to run a different block of code if the `if` condition is `false`.
 
-x = 1
-if x == 2:
-  print("It's TWO!")
-else:
-  print("It's NOT TWO!")
+```processing
+// In setup(), set size(400, 400);
+
+void draw() {
+  // Check if the mouse is on the left side
+  if (mouseX < 200) {
+    // If true: draw a blue background
+    background(0, 0, 255);
+  } else {
+    // If false (mouse is on the right): draw a red background
+    background(255, 0, 0);
+  }
+}
 ```
 
-This will check to see if the value of ```x``` is the same as ```2``` and if it isn't, the program will jump down to the ```else``` statement and run the code found within that block.
+### `else if`
 
-You can also chain a variety of ```if``` statements together; however, every ```if``` beyond the first is written as ```elif``` which stands for "else if".  See the code block below.
+You can chain multiple conditions together using `else if`. As soon as one condition is met, its code block runs and the rest of the chain is skipped.
 
-```python
+```processing
+// In draw()
+background(240);
 
-x = int(input('Enter a number between 1 and 100'))
-if x > 10:
-  print('The number is at least two digits long')
-elif x < 10:
-  print('The number is less than 10')
-else:
-  print('The number IS 10!')
-
+if (mouseY < 150) {
+  // If mouse is in the top section, draw a circle
+  fill(255, 0, 0);
+  ellipse(width/2, 75, 100, 100);
+} else if (mouseY < 300) {
+  // Else if mouse is in the middle, draw a square
+  fill(0, 255, 0);
+  rect(width/2 - 50, 175, 100, 100);
+} else {
+  // Else (mouse must be in the bottom), draw a triangle
+  fill(0, 0, 255);
+  triangle(width/2, 320, width/2 - 50, 380, width/2 + 50, 380);
+}
 ```
 
-Finally, we can chain different conditions together to check to see if multiple things are true.  Chaining different conditional statements together requires one of the following:
-* ```and``` which makes sure the conditions on both sides of the ```and``` are true
-* ```or``` which checks if either of the conditions on both sides of the ```or``` are true
+### Logical Operators (Chaining Conditions)
 
-For example:
-```python
+You can check multiple conditions at once using **logical operators**.
 
-x = 1
-y = 2
+  * `&&` (AND): Both conditions must be `true`.
+  * `||` (OR): At least one of the conditions must be `true`.
 
-if x == 1 and y == 2:
-  print('Yay!')
-else:
-  print('Nay!')
+#### `&&` (AND) Example
+
+```processing
+// In draw()
+background(240);
+fill(100);
+rect(100, 100, 200, 200); // A grey rectangle
+
+// Check if mouseX is > 100 AND mouseX is < 300
+// (i.e., is the mouse inside the rectangle's x-range?)
+if (mouseX > 100 && mouseX < 300) {
+  // If BOTH are true, draw a red ellipse
+  fill(255, 0, 0);
+  ellipse(width/2, height/2, 50, 50);
+}
 ```
 
-or
+#### `||` (OR) Example
 
-```python
+```processing
+// In draw()
+background(240);
 
-x = int(input('Enter a number: '))
-y = int(input('Enter another number: '))
-
-if x == 1 or y == 1:
-  print('Yay! One of the numbers was a one!')
-else:
-  print('Nay! Neither number was the number one...')
-
+// Check if the mouse is near the left edge OR a key is pressed
+if (mouseX < 50 || keyPressed == true) {
+  // If EITHER is true, draw a blue background
+  background(0, 0, 255);
+}
 ```
 
-Lastly, you can chain the chains together; however, you will want to ensure that you use parentheses to help you, as ```and``` has priority over ```or```, just like how ```*``` has a higher precedent in the order of operations over ```+``` for mathematics.
+#### Grouping with Parentheses
 
-```python
+Just like in math, you can use parentheses `( )` to group conditions. `&&` has priority over `||`, so grouping is important.
 
-x = 1
-y = 2
-z = 3
+```processing
+// In draw()
+background(240);
 
-if (x == 1 and y == 1) or (z == 1):
-  print('Yay!')
-elif (x == 1 and y == 2) and (y == 3 or z == 3):
-  print('WOOHOO!')
-else:
-  print('Nay!')
-
+// If (the mouse is in the top-left corner) OR (the 'm' key is pressed)
+if ( (mouseX < 100 && mouseY < 100) || (key == 'm') ) {
+  // Draw a big yellow circle
+  fill(255, 255, 0);
+  ellipse(width/2, height/2, 300, 300);
+}
 ```
+
+### Want Videos?
+* http://learningprocessing.com/videos/5-0
+* http://learningprocessing.com/videos/5-1
+* http://learningprocessing.com/videos/5-2
+* http://learningprocessing.com/videos/5-3
+* http://learningprocessing.com/videos/5-4
