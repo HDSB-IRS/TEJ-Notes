@@ -37,7 +37,7 @@ void draw() {
   // Set the background to a dark gray
   background(50); 
   
-  // 3. Display the image
+  // Display the image
   // Only attempt to draw the image if it successfully loaded into memory
   if (myImage != null) {
     // Syntax: image(PImage variable, x-coordinate, y-coordinate)

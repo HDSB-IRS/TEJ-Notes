@@ -1,10 +1,13 @@
 //Declare a variable of type PImage to hold our image data
 PImage spriteSheet; 
+//Declare a variable for a single frame
+PImage frame;
 
 //Declare variables for the frame size
 int frameWidth=16;  
 int frameHeight=28;
 int numFrames = 1;
+
 
 // setup() runs one time at the very start.
 void setup() {
@@ -23,14 +26,16 @@ void setup() {
     println("Error: Image could not be loaded. Check the filename and data folder.");
   }
   
-  //Calculate the width and height of a single frame
-// If the sheet has 6 frames in a row, one frame's width is the total width divided by 6
-  int frameWidth = spriteSheet.width / numFrames;
-  int frameHeight = spriteSheet.height;
+  //How to Calculate the width and height of a single frame is the spritesheet only has one image row
+  //If the sheet has 6 frames in a row, one frame's width is the total width divided by 6
+  //frameWidth = spriteSheet.width / numFrames;
+  //frameHeight = spriteSheet.height;
   
+  //Grab a single frame of data from the sprite sheet
+  frame = spriteSheet.get(127,236, frameWidth, frameHeight);
+
   // By default, draw() loops. We'll add noLoop() 
   // so it only runs once, making a static image.
-  // Remove the line below to see shapes drawn at the mouse position!
   noLoop(); 
 }
 
@@ -45,15 +50,15 @@ void draw() {
   // Set the background to a dark gray
   background(50); 
   
-  // 3. Display the image
+  //Display the image
   // Only attempt to draw the image if it successfully loaded into memory
   if (spriteSheet != null) {
     // Syntax: image(PImage variable, x-coordinate, y-coordinate)
     // (0, 0) is the top-left corner of the window
     image(spriteSheet, 50, 50);
     
-    PImage frame;
-    frame = spriteSheet.get(127,236, frameWidth, frameHeight);
+
+    //Draw the new image
     image(frame, 0, 0);
     
   
